@@ -30,10 +30,13 @@ class Input extends Component{
   }
 
   getValidationState() {
-    if (this.endsWithAny(['.png','jpg','jpeg'],this.state.url)) {
-      return true;
+    console.log(this)
+    if (this.state.url === undefined || this.state.url === '') {
+      return 'null'
+    } else if (this.endsWithAny(['.png','jpg','jpeg'],this.state.url)) {
+      return 'success';
     } else {
-      return false;
+      return 'error';
     }
   }
   

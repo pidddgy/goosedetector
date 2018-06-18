@@ -11,6 +11,7 @@ class App extends Component {
     super(props);
     this.state = {
       gooseProbability: null,
+      validated: false
     };
     this.inputRef = React.createRef();
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,8 +22,15 @@ class App extends Component {
     });
   }
 
+  async setStateToValidated(validated) {
+    this.setState({
+      validated: validated
+    })
+  }
+
   async handleSubmit(){
     await this.setStateToGooseProbability(this.refs.inputRef.state.url);
+    await this.setStateToValidated(this.refs.inputRef.validated);
   }
 
   render() {
