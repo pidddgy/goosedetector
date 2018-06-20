@@ -5,13 +5,16 @@ const app = new Clarifai.App({
 });
 
 async function getGooseProbability(url) {
+  if (!url.startsWith('http')) {
+    throw "not valid url";
+  }
   const response = await app.models.predict(Clarifai.GENERAL_MODEL, url);
   try{
     return response.outputs[0].data.concepts.find((element) => {
       return element.name === 'goose';
   }).value  
   } catch (error) {
-    return null;
+
   }
   }
 

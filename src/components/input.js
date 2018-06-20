@@ -20,19 +20,18 @@ class Input extends Component{
 
   async handleChange(event) {
     event.persist();
+    const validated = this.getValidationState(this.state.url)
     await this.setState({
         url: event.target.value,
     })
-    const validated = this.getValidationState(this.state.url)
-    this.setState({
+    await this.setState({
       validated: validated
     })
   }
 
   getValidationState() {
-    console.log(this)
     if (this.state.url === undefined || this.state.url === '') {
-      return 'null'
+      return null;
     } else if (this.endsWithAny(['.png','jpg','jpeg'],this.state.url)) {
       return 'success';
     } else {
