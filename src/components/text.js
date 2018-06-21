@@ -1,26 +1,58 @@
+import { Alert } from 'react-bootstrap';
 import React from 'react';
+import '../css/text.css';
+
 
 const Text = (props) => {
+
   if (props.gooseProbability === 'not valid url') {
     return (
-      <p> That's a weird URL.... try something else? </p>
+      <div className="wrapper">
+        <div id="alertWrapper">
+          <Alert bsStyle="danger">
+            <p> That's a weird URL... try something else? </p>
+          </Alert>
+        </div>
+      </div>
     );
   }
 
-  const gooseProbability = String(props.gooseProbability * 100)
+  const gooseProbability = props.gooseProbability * 100;
+  console.log(gooseProbability)
   if (gooseProbability < 87) {
     return (
-      <p> This is not a goose :( </p>
+      <div className="wrapper">
+        <img alt="" src={props.image} />
+        <div id="alertWrapper">
+          <Alert bsStyle="danger">
+            <p> This is not a goose :( </p>
+          </Alert>
+        </div>
+      </div>
     );
   }
-  if (gooseProbability < 98 || gooseProbability > 87) {
+  if (gooseProbability < 95 && gooseProbability > 87) {
     return (
-      <p> This might be a goose? :L </p>
+      <div className="wrapper">
+        <img alt="Failed to load." src={props.image} /> 
+        <div id="alertWrapper">
+          <Alert bsStyle="warning">
+            <p> This might be a goose :L</p>
+          </Alert>
+        </div>
+      </div>
     );
   }
-  if (gooseProbability > 98) {
+  if (gooseProbability > 95) {
     return (
-      <p> This is a goose! :) </p>
+      <div className="wrapper">
+        <img alt="Failed to load." src={props.image} /> 
+        <div id="alertWrapper">
+          <Alert>
+            <p> This is a goose! :) </p>
+          </Alert>
+        </div>
+      </div>
     );
   }
 };
