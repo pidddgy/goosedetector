@@ -12,6 +12,7 @@ class App extends Component {
     this.state = {
       gooseProbability: null,
       url: null,
+      otherPossibilities: null,
     };
     this.inputRef = React.createRef();
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,13 +20,14 @@ class App extends Component {
   async setStateToGooseProbability(url) {
     try {
       this.setState({
-        gooseProbability: await getGooseProbability(url),
+        gooseProbability: (await getGooseProbability(url))[0],
         url: url,
+        otherPossibilities: (await getGooseProbability(url))[1],
       });
     }
     catch (err) {
       this.setState({
-        gooseProbability: 'not valid url'
+        gooseProbability: 'not valid url',
       });
     }
   }
@@ -43,7 +45,7 @@ class App extends Component {
         </PageHeader>
         <div className="center"> <Input ref="inputRef"/> </div>
         <Button onClick={this.handleSubmit}>Submit</Button>
-        <Text gooseProbability={this.state.gooseProbability} image={this.state.url}/> 
+        <Text gooseProbability={this.state.gooseProbability} image={this.state.url} otherPossibilities={this.state.otherPossibilities} /> 
       </div>
     );
   }

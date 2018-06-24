@@ -9,13 +9,13 @@ async function getGooseProbability(url) {
     throw new Error('not valid url');
   }
   const response = await app.models.predict(Clarifai.GENERAL_MODEL, url);
-  console.log(response.outputs[0].data.concepts);
+
   try {
-    return response.outputs[0].data.concepts.find((element) => {
+    return [response.outputs[0].data.concepts.find((element) => {
       return element.name === 'goose';
-    }).value;
+    }).value, response.outputs[0].data.concepts];
   } catch (error) {
-    return (0);
+    return [0, response.outputs[0].data.concepts];
   }
 }
 
