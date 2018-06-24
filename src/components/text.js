@@ -14,8 +14,9 @@ const Text = (props) => {
         }
       });
     } catch (error) {
-      //console.log(error);
+      console.log(error)
     }
+  
     return returnList;
   };
 
@@ -56,7 +57,7 @@ const Text = (props) => {
           placement="right"
           overlay={popoverHoverFocus}
         >
-          <img alt="Failed to load." src={props.image} /> 
+          <img alt="Failed to load image." src={props.image} /> 
         </OverlayTrigger>
         <div id="alertWrapper">
           <Alert bsStyle="danger">
@@ -74,7 +75,7 @@ const Text = (props) => {
           placement="right"
           overlay={popoverHoverFocus}
         >
-          <img alt="Failed to load." src={props.image} /> 
+          <img alt="Failed to load image." src={props.image} /> 
         </OverlayTrigger>
         <div id="alertWrapper">
           <Alert bsStyle="warning">
@@ -92,7 +93,7 @@ const Text = (props) => {
           placement="right"
           overlay={popoverHoverFocus}
         >
-          <img alt="Failed to load." src={props.image} /> 
+          <img alt="Failed to load image." src={props.image} /> 
         </OverlayTrigger>
         <div id="alertWrapper">
           <Alert>
