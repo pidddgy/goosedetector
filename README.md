@@ -2,7 +2,7 @@
 An app that detects geese!
 
 ## usage
-go to the website
+go to https://pidddgy.github.io/goosedetector/
 
 ## made with
 -react.js / create-react-app
