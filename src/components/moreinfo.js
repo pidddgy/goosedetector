@@ -6,7 +6,7 @@ const popover = () => {
     <Popover id="popover-trigger-hover-focus" title="Popover bottom">
       <strong>Holy guacamole!</strong> Check this info.
     </Popover>
-  )
+  );
 };
 
 export default popover;

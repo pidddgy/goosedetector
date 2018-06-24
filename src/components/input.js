@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import 'redux';
 import { FormGroup, FormControl } from 'react-bootstrap';
 import '../css/input.css';
-import 'redux';
 
 class Input extends Component {
   constructor(props) {
